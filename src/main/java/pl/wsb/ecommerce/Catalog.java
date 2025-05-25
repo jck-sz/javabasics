@@ -3,25 +3,28 @@ import java.util.ArrayList;
 
 /*
  Zaprojektuj i zaimplementuj potrzebne klasy do obsługi Katalogu produktów.
- a. Katalog zawiera wszystkie Produkty możliwe do kupienia w Sklepie.
+ a. Katalog zawiera wszystkie Produkty możliwe do kupienia w Sklepie. -- zrobione, ale produkty dodajemy ręcznie do katalogu 
+    w funkcji generateCatalog(Catalog catalog) w Main.java, może da się to jakoś ładniej zrobić?
  b. Podczas uruchomienia aplikacji Katalog uzupełniany jest z góry
- zdefiniowanymi Produktami.
+ zdefiniowanymi Produktami. - zrobione w generateCatalog(Catalog catalog)
  c. Katalog umożliwia na pobranie i wyświetlenie nazw oraz cen
- wszystkich Produktów w Katalogu sortując je alfabetycznie.
+ wszystkich Produktów w Katalogu sortując je alfabetycznie. -- zrobione
  d. Katalog umożliwia na pobranie i wyświetlenie nazw oraz cen
- wszystkich Produktów o podanej Kategorii sortując je od najtańszych
+ wszystkich Produktów o podanej Kategorii sortując je od najtańszych 
  do najdroższych. Ponadto odfiltrowane są te Produkty, które są
- oznaczone jako niedostępne do zakupu.
+ oznaczone jako niedostępne do zakupu. -- zrobione
 */
 
 
 public class Catalog {
     ArrayList<Product> allTheProducts;
 
+    // CONSTRUCTORS //
     Catalog() {
         allTheProducts = new ArrayList<Product>();
     }
 
+    // METHODS //
     public void addProduct(Product product) {
         allTheProducts.add(product);
     }

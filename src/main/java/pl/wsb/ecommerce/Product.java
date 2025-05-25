@@ -3,9 +3,9 @@ package src.main.java.pl.wsb.ecommerce;
 /* 
 Zaimplementuj klasę reprezentującą Produkt.
 a. Produkt zawiera m.in. swoją nazwę, cenę oraz jedną z dostępnych
-kategorii.
+kategorii. -- zrobione
 b. Produkt może być oznaczony jako dostępny lub niedostępny do
-zakupu 
+zakupu -- zrobione
 */
 
 

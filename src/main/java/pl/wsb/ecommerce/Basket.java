@@ -9,7 +9,7 @@ b. Z Koszyka można usuwać Produkty. -- zrobione
 c. Można wyświetlić nazwy wszystkich Produktów znajdujących się
 obecnie w Koszyku oraz ich liczbę (np. Cytryna, 2 szt.). -- zrobione
 d. Koszyk umożliwia obliczenie oraz wyświetlenie ceny koszyka, czyli
-sumy cen wszystkich znajdujących się w nim Produktów. 
+sumy cen wszystkich znajdujących się w nim Produktów. -- zrobione
 */
 
 public class Basket {
