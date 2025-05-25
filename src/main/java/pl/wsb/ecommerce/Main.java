@@ -7,28 +7,23 @@ public class Main {
         Catalog catalog = new Catalog();
         generateCatalog(catalog);
 
-/*
-        System.out.println("-------------------");
-        System.out.println("-- All products: --");
-        System.out.println("-------------------");
-        catalog.displayAllProductListSortedByName();
-        System.out.println("---------------------");
-        System.out.println("-- Only available: --");
-        System.out.println("---------------------");
-        catalog.displayAvailableProductListSortedByPrice();
- */
+        // Tworzenie koszyka i dodawanie do niego produktów - może zrobić na to osobną funkcję?
         Basket basket = new Basket();
+        basket.addProduct(catalog.allTheProducts.get(0));
+        basket.addProduct(catalog.allTheProducts.get(0));
         basket.addProduct(catalog.allTheProducts.get(0));
         basket.addProduct(catalog.allTheProducts.get(0));
         basket.addProduct(catalog.allTheProducts.get(1));
         basket.addProduct(catalog.allTheProducts.get(2));
+        basket.removeProduct(catalog.allTheProducts.get(0));
         basket.displayBasket();
+        System.out.println(("Total basket price is: " + basket.calculateTotal() + "PLN"));
 
 
     }
 
+    // funkcja do generowania produktów i dodawania ich do katalogu
     public static void generateCatalog(Catalog catalog) {
-
         catalog.addProduct(new Product("Pasta do zebow", 10.33, Category.ZDROWIE, false));
         catalog.addProduct(new Product("Laptop", 4099.99, Category.LAPTOPY, true));
         catalog.addProduct(new Product("Zmywarka", 255.99, Category.AGD, true));

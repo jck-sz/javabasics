@@ -30,6 +30,7 @@ public class Catalog {
         allTheProducts.remove(product);
     }
 
+    // Metoda do wyświetlania wszystkich produktów w katalogu posortowanych po nazwie rosnąco
     public void displayAllProductListSortedByName() {
         allTheProducts.sort((arg1, arg2) -> arg1.getName().compareTo(arg2.getName()));
         for (Product product : allTheProducts) {
@@ -37,6 +38,7 @@ public class Catalog {
         }
     }
 
+    // Metoda do wyświetlania produktów dostępnych w katalogu posortowanych po cenie rosnąco
     public void displayAvailableProductListSortedByPrice() {
         allTheProducts.sort((arg1, arg2) -> Double.compare(arg1.getPrice(), arg2.getPrice()));
         for (Product product : allTheProducts) {
@@ -47,6 +49,7 @@ public class Catalog {
         }
     }
 
+    // Metoda do wyświetlania produktów dostępnych w katalogu posortowanych po cenie malejąco
     public void displayAvailableProductListSortedByPriceDescending() {
         allTheProducts.sort((arg1, arg2) -> Double.compare(arg2.getPrice(), arg1.getPrice()));
         for (Product product : allTheProducts) {
@@ -56,8 +59,4 @@ public class Catalog {
             System.out.println(product.getName() + " - " + product.getPrice() + " PLN");
         }
     }
-
-
-
-
 }
