@@ -31,6 +31,7 @@ public class Catalog {
         allTheProducts.add(new Product("Witamina D3 8000 IU", 49.99, Category.ZDROWIE));
         allTheProducts.add(new Product("Subskrypcja XBOX Game Pass", 99.99, Category.ROZRYWKA));
         allTheProducts.add(new Product("Usługa transportowa", 199.99, Category.INNE));
+        allTheProducts.add(new Product("Woda", 10));
     }
 
     // METHODS //
@@ -75,18 +76,17 @@ public class Catalog {
             // nie potrzebna zmienna status i należy zmienić kod na:
             // if (!p.isAvailable()) { continue; }
             // else { System.out.println(p);}
-            // 
             if (p.isAvailable()) { status = "(dostępny)";}
             else { status = "(niedostępny)";}
             System.out.println(p + " " + status);
         }
     }
 
-    // NOWA: Produkty według kategorii sortowane po cenie (BUBBLE SORT)
+    // Produkty według kategorii sortowane po cenie (BUBBLE SORT) -- wymaganie projektowe (d)
     public ArrayList<Product> getProductsByCategory(Category category) {
         ArrayList<Product> categoryProducts = new ArrayList<Product>();
         
-        // Znajdowanie produktów z danej kategorii (tylko dostępne) - traditional for loop
+        // Znajdowanie produktów z danej kategorii (tylko dostępne)
         for (int i = 0; i < allTheProducts.size(); i++) {
             Product p = allTheProducts.get(i);
             if (p.getCategory() == category && p.isAvailable()) {
@@ -108,6 +108,7 @@ public class Catalog {
         return categoryProducts;
     }
 
+    // WYŚWIETLANIE PRODUKTÓW Z WYBRANEJ KATEGORII 
     public void displayProductsByCategory(Category category) {
         System.out.println("=== PRODUKTY Z KATEGORII: " + category + " (od najtańszych) ===");
         ArrayList<Product> categoryProducts = getProductsByCategory(category);
@@ -119,16 +120,7 @@ public class Catalog {
         }
     }
 
-    // POMOCNICZA: Znajdowanie produktu po nazwie (tylko dostępne)
-    public Product findProduct(String name) {
-        for (int i = 0; i < allTheProducts.size(); i++) {
-            Product p = allTheProducts.get(i);
-            if (p.getName().equalsIgnoreCase(name) && p.isAvailable()) {
-                return p;
-            }
-        }
-        return null;
-    }
+
     
     // NOWA: Sprawdzanie czy produkt istnieje (niezależnie od dostępności)
     public Product findProductAny(String name) {

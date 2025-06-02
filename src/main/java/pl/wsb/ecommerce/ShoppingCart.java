@@ -10,23 +10,27 @@ c. Można wyświetlić nazwy wszystkich Produktów znajdujących się obecnie w 
 d. Koszyk umożliwia obliczenie oraz wyświetlenie ceny koszyka, czyli sumy cen wszystkich znajdujących się w nim Produktów. -> calculateTotalPrice()
  */
 
-
+// KLASA ShoppingCart - reprezentuje koszyk zakupowy
 public class ShoppingCart {
     private HashMap<String, CartItem> items;
     private Promotion activePromotion;
     private HashMap<String, Promotion> availablePromotions;
     
+    // CONSTRUCTOR //
     public ShoppingCart() {
         this.items = new HashMap<String, CartItem>();
         this.availablePromotions = new HashMap<String, Promotion>();
         initializePromotions();
     }
     
+    // INICJALIZACJA PROMOCJI W KONSTRUKTORZE
     private void initializePromotions() {
         Promotion tenPercent = new TenPercentPromotion();
         Promotion threeForTwo = new ThreeForTwoPromotion();
         Promotion secondHalf = new SecondHalfPricePromotion();
         
+        // Przy inicjalizacji dodajemy do koszyka wszystkie dostępne promocje i wczytujemy do HashMapa żeby można było się do nich odnieść
+        // Żadna promocja nie jest aktywna z defaultu
         availablePromotions.put(tenPercent.getPromoCode(), tenPercent);
         availablePromotions.put(threeForTwo.getPromoCode(), threeForTwo);
         availablePromotions.put(secondHalf.getPromoCode(), secondHalf);
@@ -91,8 +95,8 @@ public class ShoppingCart {
         }
         
         ArrayList<CartItem> itemList = new ArrayList<CartItem>();
-        
-        // Traditional iteration to collect values
+
+        // Trzeba pobrać klucze z HashMapy i przekonwertować je na tablicę Stringów bo nie da sie iterować po indeksie HashMapy (key value pair)
         String[] keys = items.keySet().toArray(new String[0]);
         for (int i = 0; i < keys.length; i++) {
             itemList.add(items.get(keys[i]));
@@ -108,7 +112,10 @@ public class ShoppingCart {
             return sum;
         }
     }
-    
+    // Można dodać metodę do liczenia wartości koszyka bez promocji
+    // Opcjonalnie
+
+
     public boolean applyPromotion(String promoCode) {
         if (availablePromotions.containsKey(promoCode)) {
             activePromotion = availablePromotions.get(promoCode);
@@ -128,8 +135,9 @@ public class ShoppingCart {
     public void displayAvailablePromotions() {
         System.out.println("=== DOSTĘPNE PROMOCJE ===");
         
-        // Traditional iteration over HashMap values
+        // Trzeba pobrać klucze z HashMapy i przekonwertować je na tablicę Stringów bo nie da sie iterować po indeksie HashMapy
         String[] promoCodes = availablePromotions.keySet().toArray(new String[0]);
+
         for (int i = 0; i < promoCodes.length; i++) {
             Promotion p = availablePromotions.get(promoCodes[i]);
             System.out.println(p.getPromoCode() + " - " + p.getDescription());

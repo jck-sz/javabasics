@@ -4,7 +4,7 @@ import java.util.Scanner;
 // NOWA GŁÓWNA KLASA Z INTERAKTYWNYM MENU
 public class Main {
     private Catalog catalog;
-    private ShoppingCart cart;  // ZMIENIONA NAZWA z Basket
+    private ShoppingCart cart;
     private Scanner scanner;
     
     public Main() {
@@ -54,6 +54,10 @@ public class Main {
                     running = false;
                     System.out.println("Dziękujemy za zakupy!");
                     break;
+                case -999:  // Handle quit
+                    running = false;
+                    System.out.println("Dziękujemy za zakupy!");
+                    break;
                 default:
                     System.out.println("Nieprawidłowy wybór!");
             }
@@ -79,11 +83,19 @@ public class Main {
     }
     
     private int getChoice() {
-        try {
-            int choice = Integer.parseInt(scanner.nextLine());
-            return choice;
+    try {
+        String input = scanner.nextLine();
+        
+        // Check if user wants to quit
+        if (input.equalsIgnoreCase("q")) {
+            return -999;  // Special value for quit
+        }
+        
+        // Otherwise try to parse as integer
+        int choice = Integer.parseInt(input);
+        return choice;
         } catch (NumberFormatException e) {
-            return -1;
+        return -1;  // Invalid input
         }
     }
     

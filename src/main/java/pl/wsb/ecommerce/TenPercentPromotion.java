@@ -11,6 +11,7 @@ class TenPercentPromotion implements Promotion {
     @Override
     public double calculateDiscountedPrice(ArrayList<CartItem> items) {
         double basePrice = 0;
+        // Iterujemy po każdym itemie w ArrayList i sumujemy cene a nastepnie mnozymy przez 0.9
         for (int i = 0; i < items.size(); i++) {
             basePrice += items.get(i).getTotalPrice();
         }

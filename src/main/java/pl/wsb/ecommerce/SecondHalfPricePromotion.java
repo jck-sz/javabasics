@@ -17,11 +17,12 @@ class SecondHalfPricePromotion implements Promotion {
             int quantity = item.getQuantity();
             double unitPrice = item.getProduct().getPrice();
             
-            int pairs = quantity / 2;
-            int remaining = quantity % 2;
             
-            // Pary produktów: pierwszy pełna cena, drugi połowa ceny
-            totalPrice += pairs * (unitPrice + unitPrice * 0.5);
+            int pairs = quantity / 2; // Obliczamy liczbę par produktów
+            int remaining = quantity % 2; // Obliczamy liczbę produktów, które nie tworzą pełnej pary - są w pełnej cenie
+            
+            // Pary produktów: pierwszy pełna cena, drugi połowa ceny i mnożymy przez ilość par
+            totalPrice += pairs * (unitPrice + (unitPrice * 0.5));
             // Pozostałe produkty pełna cena
             totalPrice += remaining * unitPrice;
         }

@@ -1,10 +1,10 @@
-package pl.wsb.ecommerce;  // POPRAWIONY PACKAGE
+package pl.wsb.ecommerce;  // 
 
 /* Zaimplementuj klasę reprezentującą Produkt.
 a. Produkt zawiera m.in. swoją nazwę, cenę oraz jedną z dostępnych kategorii. -> name, price, category
 b. Produkt może być oznaczony jako dostępny lub niedostępny do zakupu -> isAvailable
 */
-public class Product {  // DODANY public
+public class Product {  // 
     private String name;
     private double price;
     private Category category;

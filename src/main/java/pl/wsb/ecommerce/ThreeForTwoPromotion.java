@@ -1,4 +1,3 @@
-// ThreeForTwoPromotion.java - PROMOCJA 3 ZA 2
 package pl.wsb.ecommerce;
 import java.util.ArrayList;
 
@@ -12,7 +11,7 @@ class ThreeForTwoPromotion implements Promotion {
     public double calculateDiscountedPrice(ArrayList<CartItem> items) {
         ArrayList<Double> productPrices = new ArrayList<Double>();
         
-        // Zbierz wszystkie ceny produktów (traditional for loop)
+        // Zbierz wszystkie ceny produktów
         for (int i = 0; i < items.size(); i++) {
             CartItem item = items.get(i);
             for (int j = 0; j < item.getQuantity(); j++) {
@@ -31,13 +30,16 @@ class ThreeForTwoPromotion implements Promotion {
             }
         }
         
+        // Ile razy trzeba zastosować promocje (ile jest grup po 3 produktów)
+        int numberOfDiscounts = productPrices.size() / 3;
+        
         double totalPrice = 0;
         for (int i = 0; i < productPrices.size(); i++) {
-            if ((i + 1) % 3 == 0) {
-                // Każdy trzeci produkt (najtańszy w grupie) za 1 zł
+            // Jeśli iterujemy już po numberOfDiscounts najtanszych przedmiotach, to są one po 1 zł
+            if (i >= productPrices.size() - numberOfDiscounts) {
                 totalPrice += 1.0;
             } else {
-                totalPrice += productPrices.get(i);
+                totalPrice += productPrices.get(i);  // Full price
             }
         }
         
