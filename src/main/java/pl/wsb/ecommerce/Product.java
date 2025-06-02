@@ -1,43 +1,36 @@
-package src.main.java.pl.wsb.ecommerce;
+package pl.wsb.ecommerce;  // POPRAWIONY PACKAGE
 
-/* 
-Zaimplementuj klasę reprezentującą Produkt.
-a. Produkt zawiera m.in. swoją nazwę, cenę oraz jedną z dostępnych
-kategorii. -- zrobione
-b. Produkt może być oznaczony jako dostępny lub niedostępny do
-zakupu -- zrobione
+/* Zaimplementuj klasę reprezentującą Produkt.
+a. Produkt zawiera m.in. swoją nazwę, cenę oraz jedną z dostępnych kategorii. -> name, price, category
+b. Produkt może być oznaczony jako dostępny lub niedostępny do zakupu -> isAvailable
 */
-
-
-
-public class Product {
+public class Product {  // DODANY public
     private String name;
     private double price;
     private Category category;
     private boolean isAvailable;
 
     // CONSTRUCTORS //
-    Product(String name, double price, Category category, boolean isAvailable) {
+    public Product(String name, double price, Category category, boolean isAvailable) {
         this.name = name;
         this.price = price;
         this.category = category;
         this.isAvailable = isAvailable;
     }
 
-    Product(String name, double price, Category category) {
+    public Product(String name, double price, Category category) {
         this.name = name;
         this.price = price;
         this.category = category;
         this.isAvailable = true;
     }
 
-    Product(String name, double price) {
+    public Product(String name, double price) {
         this.name = name;
         this.price = price;
         this.category = Category.INNE;
         this.isAvailable = true;
     }
-
 
     // GETTERS //
     public String getName() {
@@ -73,6 +66,9 @@ public class Product {
         isAvailable = available;
     }
 
-
-
+    // DODANY toString() - przydatny do wyświetlania
+    @Override
+    public String toString() {
+        return name + " - " + price + " zł";
+    }
 }

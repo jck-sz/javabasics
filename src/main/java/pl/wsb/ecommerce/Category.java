@@ -1,4 +1,4 @@
-package src.main.java.pl.wsb.ecommerce;
+package pl.wsb.ecommerce;
 
 public enum Category {
     TELEFONY,
