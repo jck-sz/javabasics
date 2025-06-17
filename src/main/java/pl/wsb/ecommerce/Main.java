@@ -54,7 +54,7 @@ public class Main {
                     running = false;
                     System.out.println("Dziękujemy za zakupy!");
                     break;
-                case -999:  // Handle quit
+                case -999:
                     running = false;
                     System.out.println("Dziękujemy za zakupy!");
                     break;
@@ -86,16 +86,16 @@ public class Main {
     try {
         String input = scanner.nextLine();
         
-        // Check if user wants to quit
+        // Obsługa "q" jako quit
         if (input.equalsIgnoreCase("q")) {
-            return -999;  // Special value for quit
+            return -999;
         }
         
-        // Otherwise try to parse as integer
+        // w przeciwnym wypadku parsujemy na int
         int choice = Integer.parseInt(input);
         return choice;
         } catch (NumberFormatException e) {
-        return -1;  // Invalid input
+        return -1;
         }
     }
     
